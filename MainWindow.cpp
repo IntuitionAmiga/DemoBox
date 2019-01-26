@@ -1,3 +1,6 @@
+// (c) 2018 Zayn Otley
+// intuitionamiga@gmail.com
+
 #include "MainWindow.h"
 
 #include <Application.h>
@@ -35,6 +38,7 @@ MainWindow::MainWindow(void)
 	menu->AddItem(new BMenuItem("Open", new BMessage(M_OPEN_REQUESTED)));
     menu->AddItem(new BMenuItem("About", new BMessage(M_ABOUT_REQUESTED)));
 
+    // "Open" button
     BRect buttonOpenRect(0,22,75,50);
     const char* buttonOpenName = "Open File Button";
     const char* buttonOpenLabel = "Open";
@@ -42,6 +46,7 @@ MainWindow::MainWindow(void)
     buttonOpen = new BButton(buttonOpenRect, buttonOpenName, buttonOpenLabel, new BMessage(M_OPEN_REQUESTED));
     AddChild(buttonOpen);
 
+    // "Play/Pause" button
     BRect buttonPlayRect(0,46,75,50); //left,top,right,bottom
     const char* buttonPlayName = "Play/Pause Button";
     const char* buttonPlayLabel = "Play/Pause";
@@ -49,6 +54,7 @@ MainWindow::MainWindow(void)
     buttonPlay = new BButton(buttonPlayRect, buttonPlayName, buttonPlayLabel, new BMessage(BTN_PLAY_MSG));
     AddChild(buttonPlay);
 
+    // "Stop" button
     BRect buttonStopRect(0,70,75,50);
     const char* buttonStopName = "Stop Button";
     const char* buttonStopLabel = "Stop";
@@ -56,6 +62,7 @@ MainWindow::MainWindow(void)
     buttonStop = new BButton(buttonStopRect, buttonStopName, buttonStopLabel, new BMessage(BTN_STOP_MSG));
     AddChild(buttonStop);
 
+    // "Reset" button
     BRect buttonResetRect(0,96,75,50);
     const char* buttonResetName = "Reset Button";
     const char* buttonResetLabel = "Reset";
@@ -63,6 +70,7 @@ MainWindow::MainWindow(void)
     buttonReset = new BButton(buttonResetRect, buttonResetName, buttonResetLabel, new BMessage(BTN_RESET_MSG));
     AddChild(buttonReset);
 
+    // "Screenshot" button
     BRect buttonScreenshotRect(0,120,75,50);
     const char* buttonScreenshotName = "Screenshot Button";
     const char* buttonScreenshotLabel = "Screenshot";
@@ -70,6 +78,7 @@ MainWindow::MainWindow(void)
     buttonScreenshot = new BButton(buttonScreenshotRect, buttonScreenshotName, buttonScreenshotLabel, new BMessage(BTN_SHOT_MSG));
     AddChild(buttonScreenshot);
 
+    // "Record video" button
     BRect buttonVideoRect(0,144,75,50);
     const char* buttonVideoName = "Video Button";
     const char* buttonVideoLabel = "Video";
@@ -77,7 +86,7 @@ MainWindow::MainWindow(void)
     buttonVideo = new BButton(buttonVideoRect, buttonVideoName, buttonVideoLabel, new BMessage(BTN_VIDEO_MSG));
     AddChild(buttonVideo);
 
-
+    // "View CPU registers" button
     BRect buttonRegistersRect(0,168,75,50);
     const char* buttonRegistersName = "Registers Button";
     const char* buttonRegistersLabel = "Registers";
@@ -85,7 +94,7 @@ MainWindow::MainWindow(void)
     buttonRegisters = new BButton(buttonRegistersRect, buttonRegistersName, buttonRegistersLabel, new BMessage(BTN_REGISTERS_MSG));
     AddChild(buttonRegisters);
 
-
+    // "Show debugger" button
     BRect buttonDebugRect(0,192,75,50);
     const char* buttonDebugName = "Debug Button";
     const char* buttonDebugLabel = "Debug";
@@ -93,6 +102,7 @@ MainWindow::MainWindow(void)
     buttonDebug = new BButton(buttonDebugRect, buttonDebugName, buttonDebugLabel, new BMessage(BTN_DEBUG_MSG));
     AddChild(buttonDebug);
 
+    // Create surface to blit to
     BRect vduRect(76,0,640,512);
     BBitmap *image = new BBitmap(vduRect, B_RGBA32);
 }
