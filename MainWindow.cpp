@@ -14,13 +14,13 @@
 
 #define M_OPEN_REQUESTED 'open'
 #define M_ABOUT_REQUESTED 'abrq'
-#define BTN_PLAY_MSG 'btnply'
-#define BTN_STOP_MSG 'btnstp'
-#define BTN_RESET_MSG 'btnrst'
-#define BTN_SHOT_MSG 'btnsht'
-#define BTN_VIDEO_MSG 'btnvid'
-#define BTN_REGISTERS_MSG 'btnregs'
-#define BTN_DEBUG_MSG 'btndbg'
+#define BTN_PLAY_MSG 'bply'
+#define BTN_STOP_MSG 'bstp'
+#define BTN_RESET_MSG 'brst'
+#define BTN_SHOT_MSG 'bsht'
+#define BTN_VIDEO_MSG 'bvid'
+#define BTN_REGISTERS_MSG 'breg'
+#define BTN_DEBUG_MSG 'bdbg'
 
 MainWindow::MainWindow(void)
 	:	BWindow(BRect(100,100,716,512),"Intuition DemoBox",B_TITLED_WINDOW, B_ASYNCHRONOUS_CONTROLS) {
@@ -118,6 +118,18 @@ void MainWindow::MessageReceived(BMessage *msg) {
 
         case M_ABOUT_REQUESTED: {
                 BAlert *alert = new BAlert("Demobox", "Runtime engine for demoscene productions running on various virtual machine plugins.\n\n (c) 2018 Zayn Otley.\n\n", "OK");
+                alert->Go();
+            break;
+        }
+
+        case BTN_REGISTERS_MSG: {
+                BAlert *alert = new BAlert("Demobox","Register window goes here.", "OK");
+                alert->Go();
+            break;
+        }
+
+        case BTN_DEBUG_MSG: {
+                BAlert *alert = new BAlert("Demobox","Debugger window goes here.", "OK");
                 alert->Go();
             break;
         }
